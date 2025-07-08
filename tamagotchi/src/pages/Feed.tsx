@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const Feed = () => {
     const startTime = Date.now();
@@ -8,7 +8,7 @@ const Feed = () => {
     function feedPet(hungerRecovered: number) {
 
         setFeedTime(Date.now);
-        chrome.storage.local.set({'lastTimeFed': feedTime});
+        chrome.storage.local.set({'lastTimehunger': feedTime});
 
         // Get the current hunger
         chrome.storage.local.get(['hungerLevel'], (result) => {
@@ -17,16 +17,6 @@ const Feed = () => {
         chrome.storage.local.set({'hungerLevel': hunger});
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {    
-            let secondsElapsed = Date.now() - feedTime;
-            let calculatedHunger = 100 - secondsElapsed/100;
-            setHunger(calculatedHunger);
-        })
-
-        return () => clearInterval(interval);
-
-    }, [feedTime])
   return (
     <div>
         <button onClick={() => feedPet(20)}>food</button>
