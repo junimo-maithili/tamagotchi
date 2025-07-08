@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --hunger-level: 100;
 }
 
 a {
@@ -74,5 +76,5 @@ button:focus-visible {
 
 #hungerBar {
   background-color: #747bff;
-  
-};
+  width: var(--hunger-level)px;
+}
