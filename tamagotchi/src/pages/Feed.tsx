@@ -5,13 +5,14 @@ const Feed = () => {
     const [feedTime, setFeedTime] = useState(startTime);
     const [hunger, setHunger] = useState(100);
 
-    function feedPet() {
+    function feedPet(hungerRecovered: number) {
+
         setFeedTime(Date.now);
         chrome.storage.local.set({'lastTimeFed': feedTime});
 
         // Get the current hunger
         chrome.storage.local.get(['hungerLevel'], (result) => {
-            setHunger(result.hungerLevel);
+            setHunger(result.hungerLevel+hungerRecovered);
         });
         chrome.storage.local.set({'hungerLevel': hunger});
     }
@@ -28,9 +29,8 @@ const Feed = () => {
     }, [feedTime])
   return (
     <div>
-      So basically as soon as someone feeds the animal, record the time, save it in storage, save the hunger at that time, and then dynamically calculate
-      the hunger based on the initial time
-      <button onClick={feedPet}></button>
+        <button onClick={() => feedPet(20)}>food</button>
+        <button onClick={() => feedPet(50)}>better food</button>
     </div>
   )
 }

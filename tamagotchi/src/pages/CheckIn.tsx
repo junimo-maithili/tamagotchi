@@ -1,34 +1,19 @@
-import { useEffect, useState } from 'react'
+import statsDecay from '../assets/statsDecay.tsx';
 
 const CheckIn = () => {
+    const hunger = statsDecay('hunger', 100);
+    const fun = statsDecay('fun', 100);
 
-    const [hunger, setHunger] = useState(100);
+  return (
+    <div>
+      <p>Hunger: {Math.floor(hunger)}</p>
+      <div id="hungerBar" style={{width: 'var(--hunger-level)'}}></div>
 
-    useEffect(() => {
-        chrome.storage.local.get(['hungerLevel'], (result) => {
-          // If the list of websites exists, load it into submittedWebsites
-          if (result.hungerLevel) {
-            setHunger(result.hungerLevel);
-          }
-        });
-      }, []);
-     
-    function add() {
-        setHunger((prevHunger) => {
-            const newHunger = prevHunger + 1;
-            chrome.storage.local.set({ hungerLevel: newHunger });
-            document.documentElement.style.setProperty('--hunger-level', `${newHunger}%`);
-            return newHunger;
-        });
-    }
+      <p>Fun: {Math.floor(fun)}</p>
+      <div id="funBar" style={{width: 'var(--fun-level)'}}></div>
 
-    return (
-        <div>
-            <div id="hungerBar" style={{width: 'var(--hunger-level)'}}>a</div>
-            <p>{hunger}</p>
-            <button onClick={add}></button>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default CheckIn
+export default CheckIn;
