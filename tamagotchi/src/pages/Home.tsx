@@ -2,6 +2,7 @@ import bgImg from '../assets/images/bg_img.png';
 import CheckIn from './CheckIn';
 import Feed from './Feed';
 import Pet from './Pet';
+import Play from './Play';
 import { useState, useRef } from 'react'
 
 
@@ -17,7 +18,7 @@ const home = () => {
                 <h2>tamagotchi_name</h2>
                 <button onClick={() => setScreen('feedScreen')}>feed</button>
                 <button onClick={() => setScreen('petScreen')}>pet</button>
-                <button>play</button>
+                <button onClick={() => setScreen('playScreen')}>play</button>
                 <button onClick={() => setScreen('checkIn')}>check-in</button>
             </div>
         )}
@@ -42,6 +43,14 @@ const home = () => {
                 <button onClick={() => setScreen('main')}>Back</button>
             </div>
         )}
+
+        {screen == 'playScreen' && (
+            <div id='playScreen'>
+                <Play />
+                <button onClick={() => setScreen('main')}>Back</button>
+            </div>
+        )}
+
     </div>
   )
 }
