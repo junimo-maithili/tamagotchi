@@ -26,6 +26,8 @@ a:hover {
   color: #535bf2;
 }
 
+
+
 body {
   margin: 0;
   display: flex;
@@ -55,6 +57,7 @@ button {
   transition: border-color 0.25s;
   margin: 0 0.5em;
 }
+
 
 button:hover {
   border-color: #646cff;
@@ -129,4 +132,25 @@ button:focus-visible {
   25%   {width: 75px; transform: rotate(360deg) scale(0.75);}
   50%   {width: 50px; transform: rotate(540deg) scale(0.5);}
   100%   {width: 5px; transform: rotate(720deg) scale(0.25);}
+}
+
+.outerDiv {
+  background-size: contain;
+  height: 400px;
+  width: 250px;
+  background-position: center;
+  position: relative;
+  right: 35px;
+  bottom: 35px;
+  background-repeat: no-repeat;
+}
+
+.mainNavButtons {
+  position: relative;
+  bottom: 125px;
+}
+
+.homeButton {
+  position: absolute;
+  bottom: 430px;
 }

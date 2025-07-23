@@ -15,7 +15,7 @@ const HomePetAnimation = () => {
 
   return (
     <div>
-      <img src={currentFrame} style={{ width: "200px"}}/>
+      <img src={currentFrame} style={{ width: '300px', position: 'relative', right: '25px', bottom: '20px'}}/>
     </div>
   );
 };

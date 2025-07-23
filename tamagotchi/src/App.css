@@ -40,7 +40,10 @@
   color: #888;
 }
 
-#petImg {
-  width: 150px;
-  height: auto;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 250px;      /* set your fixed width */
+  height: 400px;     /* set your fixed height */
+  overflow: hidden;  /* prevent scrolling */
 }

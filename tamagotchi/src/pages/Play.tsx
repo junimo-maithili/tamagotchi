@@ -11,7 +11,6 @@ const Play = () => {
   const [funTime, setFunTime] = useState(startTime);
   const [fun, setFun] = useState(100);
 
-  // Generate sequence on first render and on reset
   useEffect(() => {
     generateSequence();
   }, []);
