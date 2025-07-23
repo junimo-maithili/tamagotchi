@@ -1,0 +1,23 @@
+import { useState, useEffect } from 'react';
+import bgImg from '../assets/images/home_bg_1.png';
+import bgImg2 from '../assets/images/home_bg_2.png';
+
+const HomePetAnimation = () => {
+  const [currentFrame, setCurrentFrame] = useState(bgImg);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFrame(prev => prev === bgImg ? bgImg2 : bgImg);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      <img src={currentFrame} style={{ width: "200px"}}/>
+    </div>
+  );
+};
+
+export default HomePetAnimation;

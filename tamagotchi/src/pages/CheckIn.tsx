@@ -1,10 +1,15 @@
 import statsDecay from '../assets/statsDecay.tsx';
+import { useState } from 'react';
 
 const CheckIn = () => {
     const hunger = statsDecay('hunger', 10);
     const coziness = statsDecay('coziness', 10);
     const fun = statsDecay('fun', 10);
-    
+    const [name, setName] = useState('buddy');
+
+    function addName () {
+      chrome.storage.local.set({petName:name});
+    }
 
 
   return (
@@ -17,6 +22,20 @@ const CheckIn = () => {
 
       <p>Fun: {Math.floor(fun)}</p>
       <div id="funBar" style={{width: 'var(--fun-level)'}}></div>
+
+      <form onSubmit={addName}>
+        <span className="addWesbite">
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+          <input
+            type="submit"
+            value="Submit"
+          />
+          </span>
+      </form>
 
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import bgImg from '../assets/images/feed_bg_1.png'
 
 const Feed = () => {
     const startTime = Date.now();
@@ -19,6 +20,7 @@ const Feed = () => {
 
   return (
     <div>
+        <img src={bgImg} style={{ width: "200px"}}></img>
         <button onClick={() => feedPet(20)}>food</button>
         <button onClick={() => feedPet(50)}>better food</button>
     </div>
