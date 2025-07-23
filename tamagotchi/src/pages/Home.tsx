@@ -9,17 +9,30 @@ import HomePetAnimation from '../assets/home_bg_animation';
 const home = () => {
     const [screen, setScreen] = useState('main');
     const [name, setName] = useState('buddy');
+    const [coins, setCoins] = useState(0);
     
     useEffect(() => {
-        chrome.storage.local.get(["petName"], (result) => {
+        chrome.storage.local.get("petName", (result) => {
             if (result.petName) {
               setName(result.petName);
             }
         });
-      }, []);
+
+        const interval = setInterval(() => {
+    chrome.storage.local.get("coins", (result) => {
+      if (typeof result.coins === "number") {
+        setCoins(result.coins);
+      }
+    });
+  }, 1000);
+
+  return () => clearInterval(interval);
+
+}, []);
 
   return (
     <div>
+        <p>{coins}</p>
         {screen == 'main' && (
             <div id='screen1'>
                 <HomePetAnimation />

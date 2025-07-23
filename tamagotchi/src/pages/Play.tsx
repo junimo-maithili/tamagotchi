@@ -24,7 +24,13 @@ const Play = () => {
         chrome.storage.local.get(['funLevel'], (result) => {
             setFun(result.hungerLevel+40);
         });
-        chrome.storage.local.set({'hungerLevel': fun});
+        chrome.storage.local.set({'funLevel': fun});
+        
+        chrome.storage.local.get(['coins'], (result) => {
+          const newCoins = (result.coins ?? 0) + 10;
+          chrome.storage.local.set({ 'coins': newCoins });
+        });
+
     }
   
 

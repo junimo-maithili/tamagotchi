@@ -108,3 +108,25 @@ button:focus-visible {
   font-style: normal;
 }
 
+.foodImg {
+  width: 40px;
+  height: auto;
+}
+
+.foodAnimationImg {
+  animation: foodAnimation 3s linear forwards;
+  animation-duration: 3s;
+  width: 100px;
+  height: auto;
+  z-index: 100;
+  position: absolute;
+  top: 250px;
+  left: 150px;
+}
+
+@keyframes foodAnimation {
+  0%   {transform: rotate(180deg);}
+  25%   {width: 75px; transform: rotate(360deg) scale(0.75);}
+  50%   {width: 50px; transform: rotate(540deg) scale(0.5);}
+  100%   {width: 5px; transform: rotate(720deg) scale(0.25);}
+}
