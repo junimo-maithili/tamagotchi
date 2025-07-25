@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import petImg from '../assets/images/pet.png';
+import HomePetAnimation from '../assets/home_bg_animation';
 
 const Pet = () => {
     const petImgRef = useRef<HTMLImageElement | null>(null);
@@ -9,8 +9,10 @@ const Pet = () => {
     const [coziness, setCoziness] = useState(100);
 
     useEffect(() => {
-        if (petImgRef.current) {
-            petImgRef.current.onclick = () => {
+        const img = petImgRef.current;
+
+        if (img) {
+            img.onclick = () => {
                 alert("PET PETTED")
                 
                 setPetTime(Date.now);
@@ -27,7 +29,7 @@ const Pet = () => {
     
     return (
         <div>
-            <img src={petImg} id='petImg' ref={petImgRef}></img>
+            <HomePetAnimation ref={petImgRef}/>
         </div>
     )
 }

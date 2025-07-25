@@ -13,7 +13,8 @@ const CheckIn = () => {
 
 
   return (
-    <div>
+    <div className="writingBg" id="checkInText">
+      <br />
       <p>Hunger: {Math.floor(hunger)}</p>
       <div id="hungerBar" style={{width: 'var(--hunger-level)'}}></div>
 
@@ -23,12 +24,14 @@ const CheckIn = () => {
       <p>Fun: {Math.floor(fun)}</p>
       <div id="funBar" style={{width: 'var(--fun-level)'}}></div>
 
+      <p> Change name:</p>
       <form onSubmit={addName}>
-        <span className="addWesbite">
+        <span className="changeName">
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
+            placeholder="change pet name..."
           />
           <input
             type="submit"
@@ -36,7 +39,7 @@ const CheckIn = () => {
           />
           </span>
       </form>
-
+    <br /> <br />
     </div>
   );
 };

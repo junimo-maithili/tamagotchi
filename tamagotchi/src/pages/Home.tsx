@@ -32,13 +32,15 @@ const home = () => {
 }, []);
 
   return (
-    <div className="outerDiv" style={{ backgroundImage: `url(${bgImg})`}}>
-        <p>{coins}</p>
+    <div className="outerDiv" style={{ backgroundImage: `url(${bgImg})` }}>
+        <h2 style={{position: 'absolute', top: '20px', right: '20px', textAlign: 'right'}}>{coins} coins!</h2>
+        <h2 style={{position: 'absolute', top: '20px', textAlign: 'left', paddingLeft: '20px', alignSelf: 'flex-start', borderBottom: 'none', padding: 'none'}}>{name}</h2>
+        <br />
         {screen == 'main' && (
             <div id='screen1'>
                 <HomePetAnimation />
-                <h2>{name}</h2>
                 <div className="mainNavButtons"> 
+                <br /> <br /> <br /> <br />
                     <button onClick={() => setScreen('feedScreen')}>feed</button>
                     <button onClick={() => setScreen('petScreen')}>pet</button>
                     <button onClick={() => setScreen('playScreen')}>play</button>

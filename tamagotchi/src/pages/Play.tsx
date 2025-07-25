@@ -65,6 +65,9 @@ const Play = () => {
 
   return (
     <div>
+    <div className="writingBg" id="playText">
+      <br />
+      <br />
       <p>Click the buttons in the correct order!</p>
 
       {/* Show sequence (for testing or debugging) */}
@@ -73,8 +76,6 @@ const Play = () => {
         {correctSequence.map((index, i) => (
           <button key={`target-${i}`} style={{backgroundColor: colours[index]}} disabled/>))}
       </div>
-
-      <br />
 
       <p><strong>Your Input:</strong></p>
       {inputtedSequence.map((index, i) => (
@@ -86,15 +87,16 @@ const Play = () => {
       <p><strong>Choices:</strong></p>
       {colours.map((color, index) => (<button key={index} style={{backgroundColor: color}} onClick={() => addColour(index)}/>))}
 
-      <br /><br />
+      <br /> <br />
 
       <button onClick={submit}>Submit</button>
       <button onClick={resetSelection}>Restart</button>
 
       <br /><br />
 
-      {answer === 'true' && <h2> CORRECT! Click Restart to play again!</h2>}
-      {answer === 'false' && <h2> INCORRECT! Try again.</h2>}
+      {answer === 'true' && <h3> CORRECT! Click Restart to play again!</h3>}
+      {answer === 'false' && <h3> INCORRECT! Try again.</h3>}
+    </div>
     </div>
   );
 };
