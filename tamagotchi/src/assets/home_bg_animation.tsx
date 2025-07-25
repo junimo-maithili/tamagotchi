@@ -8,7 +8,7 @@ const HomePetAnimation = forwardRef<HTMLImageElement, {}>((_, ref) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFrame(prev => prev === bgImg ? bgImg2 : bgImg);
-    }, 2000);
+    }, 900);
     return () => clearInterval(interval);
   }, []);
 

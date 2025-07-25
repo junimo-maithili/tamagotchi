@@ -94,9 +94,10 @@ const Play = () => {
 
       <br /><br />
 
-      {answer === 'true' && <h3> CORRECT! Click Restart to play again!</h3>}
-      {answer === 'false' && <h3> INCORRECT! Try again.</h3>}
+     
     </div>
+    {answer === 'true' && <h3 className='playMessage'> CORRECT! Click Restart to play again!</h3>}
+      {answer === 'false' && <h3 className='playMessage'> INCORRECT! Try again.</h3>}
     </div>
   );
 };
