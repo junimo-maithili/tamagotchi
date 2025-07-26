@@ -11,7 +11,6 @@ const Feed = () => {
     const [animatingFoodImg, setAnimatingFoodImg] = useState<string | null>(null);
     const [coins, setCoins] = useState(0);
 
-    // Only run this once
     useEffect(() => {
       chrome.storage.local.get(['coins'], (result) => {
         const newCoins = (result.coins ?? 0) + 10;
@@ -21,7 +20,7 @@ const Feed = () => {
     }, []);
 
     function feedPet(hungerRecovered: number) {
-      if (coins > hungerRecovered) {
+      if (coins >= hungerRecovered) {
           setFeedTime(Date.now);
           chrome.storage.local.set({'lastTimehunger': feedTime});
 
@@ -31,33 +30,45 @@ const Feed = () => {
           });
           chrome.storage.local.set({'hungerLevel': hunger});
 
-          setCoins(coins - hungerRecovered);
+          setCoins(prev => {
+            const newCoins = prev - hungerRecovered;
+            chrome.storage.local.set({ 'coins': newCoins });
+            return newCoins;
+          });
+          
           chrome.storage.local.set({'coins': coins})
       } else {
-        alert("Not enough coins!")
+        alert('Not enough coins!')
       }
-
     }
-
-    
 
   return (
     <div>
         <img src={bgImg} style={{position: 'relative', top: '10px', width: '250px', pointerEvents: 'none'}} />
         <br/>
-        <button className="foodBtn" onClick={() => { feedPet(20); setAnimatingFoodImg(foodImg1); }}>
-          <img className="foodImg" src={foodImg1} />
-          <p className="foodPrice">20 coins</p>
+        
+        <button className='foodBtn' onClick={() => {
+          if (coins >= 20) {
+            setAnimatingFoodImg(foodImg1);
+          }
+          feedPet(20); }}>
+          <img className='foodImg' src={foodImg1} />
+          <p className='foodPrice'>20 coins</p>
         </button>
-        <button className="foodBtn" onClick={() => { feedPet(50); setAnimatingFoodImg(foodImg2); }}>
-          <img className="foodImg" src={foodImg2} />
-          <p className="foodPrice">50 coins</p>
+
+        <button className='foodBtn' onClick={() => {
+           if (coins >= 50) {
+            setAnimatingFoodImg(foodImg2);
+          }
+          feedPet(50); }}>
+          <img className='foodImg' src={foodImg2} />
+          <p className='foodPrice'>50 coins</p>
         </button>
 
         {animatingFoodImg && (
           <img
             src={animatingFoodImg}
-            className="foodAnimationImg"
+            className='foodAnimationImg'
             onAnimationEnd={() => setAnimatingFoodImg(null)}
           />
         )}

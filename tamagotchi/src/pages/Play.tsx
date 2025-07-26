@@ -32,7 +32,6 @@ const Play = () => {
 
     }
   
-
   function generateSequence() {
     const seq = Array.from({ length: 4 }, () => Math.floor(Math.random() * 4));
     setCorrectSequence(seq);
@@ -65,39 +64,39 @@ const Play = () => {
 
   return (
     <div>
-    <div className="writingBg" id="playText">
-      <br />
-      <br />
-      <p>Click the buttons in the correct order!</p>
+      <div className='writingBg' id='playText'>
+        <br/>
+        <br/>
+        <p>Click the buttons in the correct order!</p>
 
-      {/* Show sequence (for testing or debugging) */}
-      <div>
-        <p><strong>Target:</strong></p>
-        {correctSequence.map((index, i) => (
-          <button key={`target-${i}`} style={{backgroundColor: colours[index]}} disabled/>))}
+        
+        <div>
+          <p><strong>Target:</strong></p>
+          {correctSequence.map((index, i) => (
+            <button key={`target-${i}`} style={{backgroundColor: colours[index]}} disabled/>))}
+        </div>
+
+        <p><strong>Your Input:</strong></p>
+        {inputtedSequence.map((index, i) => (
+          <button key={`button-${i}`} style={{ backgroundColor: colours[index], }} disabled/>
+        ))}
+
+        <br/><br/>
+
+        <p><strong>Choices:</strong></p>
+        {colours.map((color, index) => (<button key={index} style={{backgroundColor: color}} onClick={() => addColour(index)}/>))}
+
+        <br/> <br/>
+
+        <button onClick={submit}>Submit</button>
+        <button onClick={resetSelection}>Restart</button>
+
+        <br/><br/>
+
+      
       </div>
-
-      <p><strong>Your Input:</strong></p>
-      {inputtedSequence.map((index, i) => (
-        <button key={`button-${i}`} style={{ backgroundColor: colours[index], }} disabled/>
-      ))}
-
-      <br /><br />
-
-      <p><strong>Choices:</strong></p>
-      {colours.map((color, index) => (<button key={index} style={{backgroundColor: color}} onClick={() => addColour(index)}/>))}
-
-      <br /> <br />
-
-      <button onClick={submit}>Submit</button>
-      <button onClick={resetSelection}>Restart</button>
-
-      <br /><br />
-
-     
-    </div>
     {answer === 'true' && <h3 className='playMessage'> CORRECT! Click Restart to play again!</h3>}
-      {answer === 'false' && <h3 className='playMessage'> INCORRECT! Try again.</h3>}
+    {answer === 'false' && <h3 className='playMessage'> INCORRECT! Try again.</h3>}
     </div>
   );
 };

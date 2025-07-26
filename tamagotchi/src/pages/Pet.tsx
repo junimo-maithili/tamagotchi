@@ -11,12 +11,10 @@ const Pet = () => {
 
     useEffect(() => {
         const img = petImgRef.current;
-
         if (img) {
             img.onclick = () => {
                 setHearts(true);
                 setTimeout(() => setHearts(false), 1000);
-
                 
                 setPetTime(Date.now);
                 chrome.storage.local.set({'lastTimecoziness': petTime});
@@ -35,11 +33,10 @@ const Pet = () => {
             <HomePetAnimation ref={petImgRef}/>
             
             {hearts && <>
-                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className="heartImg" />
-                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className="heartImg" />
-                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className="heartImg" />
-                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className="heartImg" />
-
+                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className='heartImg' />
+                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className='heartImg' />
+                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className='heartImg' />
+                <img style={{position: 'absolute', left: `${Math.floor(Math.random()*200)}px`, top: `${Math.floor(Math.random()*300)}px`}} src={heartImg} className='heartImg' />
             </> }
            </div>
     )

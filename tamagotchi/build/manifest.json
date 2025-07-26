@@ -2,11 +2,18 @@
     "manifest_version": 3,
     "name": "Tamagotchi",
     "version": "1.0.0",
-    "description": "Care for an extension pet!",
+    "description": "Care for an extension pet! Feed it, pet it, and play together!",
     "action": {
       "default_popup": "index.html"
     },
     "permissions": [
       "storage"
-    ]
-  }
+    ], 
+    "icons": {
+      "16": "main_icon.PNG",
+      "32": "main_icon.PNG",
+      "48": "main_icon.PNG",
+      "128": "main_icon.PNG"
+    }    
+}
+  
