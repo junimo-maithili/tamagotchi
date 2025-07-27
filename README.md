@@ -1,3 +1,5 @@
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
+
 This is a Tamagotchi Chrome Web Extension, where you can care for a pet while working! You can feed it, pet it, or even play games with it to get coins. The pet will have stats that will slowly deteriorate over time, so it's up to you to make sure your pet stays healthy and happy.
 
 To download the project and run it locally, you need to:
