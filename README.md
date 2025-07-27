@@ -2,7 +2,7 @@ This is a Tamagotchi Chrome Web Extension, where you can care for a pet while wo
 
 To download the project and run it locally, you need to:
 
-Clone the repository.
-Install the dependencies (npm install).
-Build the extension (npm run build). This will make a folder titled "build".
-Add it to Google Chrome by going to chrome://extensions/, then enable Developer Mode and click "Load unpacked". Click the "build" folder and upload it.
+1. Clone the repository
+2. Install the dependencies (npm install).
+3. Build the extension (npm run build). This will make a folder titled "build".
+4. Add it to Google Chrome by going to chrome://extensions/, then enable Developer Mode and click "Load unpacked". Click the "build" folder and upload it.
